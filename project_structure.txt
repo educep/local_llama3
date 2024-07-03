@@ -1,0 +1,52 @@
+Created by Analitika: contact@analitika.fr
+Folder PATH listing as of 2024-07-03 14:36
+Created with helpers.project_tree.DisplayablePath
+
+local_llama3/
+├── data/
+│   ├── external/
+│   ├── interim/
+│   ├── processed/
+│   └── raw/
+├── docs/
+│   ├── docs/
+│   │   ├── getting-started.md
+│   │   └── index.md
+│   ├── mkdocs.yml
+│   └── README.md
+├── LICENSE
+├── local_llama3/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── data/
+│   │   ├── __init__.py
+│   │   └── make_dataset.py
+│   ├── features/
+│   │   ├── __init__.py
+│   │   └── build_features.py
+│   ├── modeling/
+│   │   ├── __init__.py
+│   │   ├── predict.py
+│   │   └── train.py
+│   └── visualization/
+│       ├── __init__.py
+│       └── visualize.py
+├── lx_install_venv.sh
+├── Makefile
+├── mkvirtualenv.bat
+├── models/
+├── notebooks/
+├── project_structure.txt
+├── pull_request_template.md
+├── pyproject.toml
+├── README.md
+├── references/
+├── reports/
+│   └── figures/
+├── requirements.txt
+├── runtime.txt
+├── setup.cfg
+├── tools/
+│   ├── __init__.py
+│   └── project_tree.py
+└── ws_install_venv.bat

@@ -1,0 +1,25 @@
+
+# LINTERS
+pre-commit==3.7.0
+black==24.3.0
+flake8==7.1.0
+isort==5.13.2
+
+# LOGGING
+loguru==0.7.2
+
+# AWS
+awscli==1.33.20
+
+# DOCUMENTATION
+mkdocs==1.6.0
+
+
+# UTILITIES
+python-dotenv==1.0.1
+pipreqs==0.5.0
+tqdm==4.66.4
+typer==0.12.3
+
+# LOCAL PACKAGES
+-e .

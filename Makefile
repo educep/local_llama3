@@ -97,6 +97,11 @@ data: # requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py
 
 
+## Update Project Structure
+.PHONY: project_structure
+project_structure:
+	$(PYTHON_INTERPRETER) tools/project_tree.py
+
 #################################################################################
 # Self Documenting Commands                                                     #
 #################################################################################

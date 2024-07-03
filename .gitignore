@@ -4,6 +4,28 @@
 # Mac OS-specific storage files
 .DS_Store
 
+# VSCode
+.vscode/
+
+# Eclipse
+.project
+.settings/
+.classpath
+
+# JetBrains
+*.iml
+.idea/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Windows
+Thumbs.db
+
 # vim
 *.swp
 *.swo

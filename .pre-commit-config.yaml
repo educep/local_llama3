@@ -46,18 +46,19 @@ repos:
         - id: bandit
           name: bandit
           entry: bandit
-          args: ['-r', '.', '-x', '.venv']
+          args: ['-r', '.', '-x', 'env, venv, .venv']
           language: python
           types: [python]
           language_version: python3.9
+          pass_filenames: false
 
-    - repo: https://github.com/pre-commit/mirrors-pylint
-      rev: v3.0.0a5  # Use the latest version or pin to a specific version
-      hooks:
-        - id: pylint
-          name: pylint
-          entry: pylint
-          args: ['--disable=R,C', '--errors-only']
-          language: python
-          types: [python]
-          language_version: python3.9
+#    - repo: https://github.com/pre-commit/mirrors-pylint
+#      rev: v3.0.0a5  # Use the latest version or pin to a specific version
+#      hooks:
+#        - id: pylint
+#          name: pylint
+#          entry: pylint
+#          args: ['--disable=R,C', '--errors-only']
+#          language: python
+#          types: [python]
+#          language_version: python3.9

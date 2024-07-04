@@ -1,17 +1,29 @@
 Created by Analitika: contact@analitika.fr
-Folder PATH listing as of 2024-07-03 18:16
+Folder PATH listing as of 2024-07-04 19:00
 Created with tools.project_tree.DisplayablePath
 
 local_llama3/
 ├── data/
 │   ├── external/
 │   ├── interim/
+│   ├── model/
+│   │   └── llama3/
+│   │       ├── config.json
+│   │       ├── generation_config.json
+│   │       ├── model-00001-of-00002.safetensors
+│   │       ├── model-00002-of-00002.safetensors
+│   │       └── model.safetensors.index.json
 │   ├── processed/
-│   └── raw/
-│       └── medical/
-│           ├── data-00000-of-00001.arrow
-│           ├── dataset_info.json
-│           └── state.json
+│   ├── raw/
+│   │   └── medical/
+│   │       ├── data-00000-of-00001.arrow
+│   │       ├── dataset_info.json
+│   │       └── state.json
+│   └── tokenizer/
+│       └── llama3/
+│           ├── special_tokens_map.json
+│           ├── tokenizer.json
+│           └── tokenizer_config.json
 ├── docs/
 │   ├── docs/
 │   │   ├── getting-started.md
@@ -40,6 +52,8 @@ local_llama3/
 ├── Makefile
 ├── mkvirtualenv.bat
 ├── models/
+│   ├── __init__.py
+│   └── load_model.py
 ├── notebooks/
 ├── project_structure.txt
 ├── pull_request_template.md

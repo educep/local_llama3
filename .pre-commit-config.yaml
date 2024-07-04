@@ -40,17 +40,17 @@ repos:
         - id: mypy
           language_version: python3.9
 
-#    - repo: https://github.com/PyCQA/bandit
-#      rev: 1.7.0  # Use the latest version or pin to a specific version
-#      hooks:
-#        - id: bandit
-#          name: bandit
-#          entry: bandit
-#          args: ['-r', '.']
-#          language: python
-#          types: [python]
-#          language_version: python3.9
-#          exclude: ./data/,./.venv/
+    - repo: https://github.com/PyCQA/bandit
+      rev: 1.7.0  # Use the latest version or pin to a specific version
+      hooks:
+        - id: bandit
+          name: bandit
+          entry: bandit
+          args: ['-r', '.', '-x', '.venv']
+          language: python
+          types: [python]
+          language_version: python3.9
+          exclude: ./data/,./.venv/
 
 #    - repo: https://github.com/pre-commit/mirrors-pylint
 #      rev: v3.0.0a5  # Use the latest version or pin to a specific version

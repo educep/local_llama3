@@ -50,7 +50,6 @@ repos:
           language: python
           types: [python]
           language_version: python3.9
-          exclude: ./data/,./.venv/
 
 #    - repo: https://github.com/pre-commit/mirrors-pylint
 #      rev: v3.0.0a5  # Use the latest version or pin to a specific version

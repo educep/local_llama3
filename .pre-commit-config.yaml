@@ -62,7 +62,7 @@ repos:
             - '--disable=R,C,E0401'
             - '--errors-only'
             - '--init-hook'
-            - 'import sys; sys.path.extend([".venv/Lib/site-packages", "local_llama3"])'
+            - 'import sys; sys.path.extend([".venv/Lib/site-packages"])'
           language: python
           types: [python]
           language_version: python3.9

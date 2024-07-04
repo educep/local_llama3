@@ -46,7 +46,7 @@ def main(
 ):
     # dataset = load_from_disk(str(PROCESSED_DATA_MED_DIR))
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Training some model...")
+    logger.info("Training some model here...")
     for i in tqdm(range(10), total=10):
         if i == 5:
             logger.info("Something happened for iteration 5.")

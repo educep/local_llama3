@@ -4,9 +4,9 @@ contact@analitika.fr
 """
 
 from pathlib import Path
+
 import typer
 from loguru import logger
-from tqdm import tqdm
 
 app = typer.Typer()
 
@@ -35,7 +35,7 @@ class DisplayablePath(object):
         yield displayable_root
 
         children = sorted(
-            list(path for path in root.iterdir() if criteria(path)),
+            [path for path in root.iterdir() if criteria(path)],
             key=lambda s: str(s).lower(),
         )
         count = 1
@@ -123,7 +123,7 @@ def main():
     # Open the file in write mode (creates the file if it doesn't exist)
     fullpath = ""
     with open(file_path, "w", encoding="utf-8") as file:
-        file.write(f"Created by Analitika: contact@analitika.fr" + "\n")
+        file.write("Created by Analitika: contact@analitika.fr" + "\n")
         file.write(f"Folder PATH listing as of {exec_time}" + "\n")
         file.write("Created with tools.project_tree.DisplayablePath" + "\n\n")
         for path_ in paths:

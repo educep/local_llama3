@@ -3,34 +3,35 @@ Created by Analitika at 03/07/2024
 contact@analitika.fr
 """
 
+# import os
+
 # External imports
-from pathlib import Path
-from datasets import load_dataset, load_from_disk
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    BitsAndBytesConfig,
-    HfArgumentParser,
-    TrainingArguments,
-    pipeline,
-    logging,
-)
-from peft import (
-    LoraConfig,
-    PeftModel,
-    prepare_model_for_kbit_training,
-    get_peft_model,
-)
-import os
-import torch
-import wandb
-from trl import SFTTrainer, setup_chat_format
+# from pathlib import Path
+
+# import torch
 import typer
+
+# import wandb
+# from datasets import load_dataset, load_from_disk
 from loguru import logger
+
+# from peft import LoraConfig, PeftModel, get_peft_model, prepare_model_for_kbit_training
 from tqdm import tqdm
 
 # Internal imports
-from local_llama3.config import MODELS_DIR, PROCESSED_DATA_MED_DIR
+# from local_llama3.config import PROCESSED_DATA_MED_DIR
+
+# from transformers import (
+#     AutoModelForCausalLM,
+#     AutoTokenizer,
+#     BitsAndBytesConfig,
+#     HfArgumentParser,
+#     TrainingArguments,
+#     logging,
+#     pipeline,
+# )
+# from trl import SFTTrainer, setup_chat_format
+
 
 app = typer.Typer()
 
@@ -43,7 +44,7 @@ def main(
     # model_path: Path = MODELS_DIR / "model.pkl",
     # -----------------------------------------
 ):
-    dataset = load_from_disk(str(PROCESSED_DATA_MED_DIR))
+    # dataset = load_from_disk(str(PROCESSED_DATA_MED_DIR))
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
     logger.info("Training some model...")
     for i in tqdm(range(10), total=10):
@@ -54,7 +55,8 @@ def main(
 
 
 def explore():
-    dataset = load_from_disk(str(PROCESSED_DATA_MED_DIR))
+    pass
+    # dataset = load_from_disk(str(PROCESSED_DATA_MED_DIR))
 
 
 if __name__ == "__main__":

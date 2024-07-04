@@ -5,10 +5,11 @@ contact@analitika.fr
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-from loguru import logger
+
 import torch
+from dotenv import load_dotenv
 from huggingface_hub import login
+from loguru import logger
 
 # Load environment variables from .env file if it exists
 load_dotenv()

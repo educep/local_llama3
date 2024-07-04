@@ -1,34 +1,34 @@
-# MODELLING
-transformers==4.42.3
-datasets==2.20.0
+
+# LOCAL PACKAGES
+-e .
 accelerate==0.31.0
-peft==0.11.1
-trl==0.9.4
+
+# AWS
+awscli==1.33.20
 bitsandbytes==0.43.1
-wandb==0.17.3
-
-
-# LINTERS
-pre-commit==3.7.0
 black==24.3.0
+datasets==2.20.0
 flake8==7.1.0
 isort==5.13.2
 
 # LOGGING
 loguru==0.7.2
 
-# AWS
-awscli==1.33.20
-
 # DOCUMENTATION
 mkdocs==1.6.0
+peft==0.11.1
+pipreqs==0.5.0
+
+
+# LINTERS
+pre-commit==3.7.0
 
 
 # UTILITIES
 python-dotenv==1.0.1
-pipreqs==0.5.0
 tqdm==4.66.4
+# MODELLING
+transformers==4.42.3
+trl==0.9.4
 typer==0.12.3
-
-# LOCAL PACKAGES
--e .
+wandb==0.17.3

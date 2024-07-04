@@ -113,7 +113,7 @@ if __name__ == "__main__":
     # inputs = tokenizer(input_text, return_tensors="pt").to(device)
     # Move inputs to the same device as the model
     # inputs = {key: value.to(device) for key, value in inputs.items()}
-    logger.info("Calling to the model")
+    logger.info("Calling to the model, check results")
     outputs = model.generate(**inputs)
     logger.info("Result from model obtained")
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)

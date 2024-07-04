@@ -42,7 +42,10 @@ endif
 .PHONY: requirements
 requirements:
 ifeq ($(OS),Windows_NT)
-	@cmd /c "call .\\$(VENV)\\Scripts\\activate && $(PYTHON_INTERPRETER) -m pip install -U pip && $(PYTHON_INTERPRETER) -m pip install -r requirements.txt"
+	@cmd /c "call .\\$(VENV)\\Scripts\\activate && $(PYTHON_INTERPRETER) -m pip install -U pip"
+	$(info Trying to install pytorch with cuda on Windows_NT)
+	@cmd /c "call .\\$(VENV)\\Scripts\\activate && $(PYTHON_INTERPRETER) -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121"
+	@cmd /c "call .\\$(VENV)\\Scripts\\activate && $(PYTHON_INTERPRETER) -m pip install -r requirements.txt"
 else
 	@bash -c "source $(VENV)/bin/activate && $(PYTHON_INTERPRETER) -m pip install -U pip && $(PYTHON_INTERPRETER) -m pip install -r requirements.txt"
 endif
@@ -63,15 +66,15 @@ endif
 ## Lint using flake8 and black (use `make format` to do formatting)
 .PHONY: lint
 lint:
-	flake8 local_llama3
-	isort --check --diff --profile black local_llama3
-	black --check --config pyproject.toml local_llama3
+	flake8 $(PROJECT_NAME)
+	isort --check --diff --profile black $(PROJECT_NAME)
+	black --check --config pyproject.toml $(PROJECT_NAME)
 
 
 ## Format source code with black
 .PHONY: format
 format:
-	black --config pyproject.toml local_llama3
+	black --config pyproject.toml $(PROJECT_NAME)
 
 
 ## Download Data from storage system

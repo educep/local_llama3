@@ -63,3 +63,43 @@ Fine-tune Llama 3 on a dataset of patient-doctor conversations.
 ``
 pipreqs . --ignore "C:\path\to\anaconda3\lib\" 
 ``
+# Getting started
+1. Create the environment
+    ```sh
+    make create_environment
+    ```
+2. Install packages. If you are on Windows, the following command will try to install CUDA. Comment out the corresponding line if you are not equipped with a GPU.
+    ```sh
+    make requirements
+    ```
+
+# Model
+We'll be using HuggingFace's `meta-llama/Meta-Llama-3-8B`, for this
+you need to ask for access.
+
+# Generating medical dataset
+We will work with the medical dataset [here](https://huggingface.co/datasets/ruslanmv/ai-medical-chatbot). 
+
+## Downloading from remote repository
+If you have previously loaded the file, you can directly sync the local folder with S3.
+
+```sh
+make sync_data_down
+```
+
+## Downloading from HuggingFace and store in S3
+
+```sh
+make data
+make sync_data_up
+```
+
+## Treating the dataset
+To load and pre-process our dataset, we load the 
+`data/raw/medical` dataset, shuffle it, and select 
+only the top 1000 rows. And it will be stored in 
+`data/processed/medical`.
+
+This will significantly reduce the training time.
+
+This treatment is performed also in the `make data` command.

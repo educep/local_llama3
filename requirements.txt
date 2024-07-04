@@ -1,3 +1,12 @@
+# MODELLING
+transformers==4.42.3
+datasets==2.20.0
+accelerate==0.31.0
+peft==0.11.1
+trl==0.9.4
+bitsandbytes==0.43.1
+wandb==0.17.3
+
 
 # LINTERS
 pre-commit==3.7.0

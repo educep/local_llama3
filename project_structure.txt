@@ -1,6 +1,6 @@
 Created by Analitika: contact@analitika.fr
-Folder PATH listing as of 2024-07-03 14:48
-Created with helpers.project_tree.DisplayablePath
+Folder PATH listing as of 2024-07-03 18:16
+Created with tools.project_tree.DisplayablePath
 
 local_llama3/
 ├── data/
@@ -8,10 +8,15 @@ local_llama3/
 │   ├── interim/
 │   ├── processed/
 │   └── raw/
+│       └── medical/
+│           ├── data-00000-of-00001.arrow
+│           ├── dataset_info.json
+│           └── state.json
 ├── docs/
 │   ├── docs/
 │   │   ├── getting-started.md
-│   │   └── index.md
+│   │   ├── index.md
+│   │   └── provision-aws.md
 │   ├── mkdocs.yml
 │   └── README.md
 ├── LICENSE

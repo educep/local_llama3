@@ -26,8 +26,6 @@ exclude = '''
   | \.venv
   | __pycache__
   | local_llama3/local_llama3/data
-  | local_llama3/local_llama3/models
-  | local_llama3/local_llama3/visualization
 )/
 '''
 

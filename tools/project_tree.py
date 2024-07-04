@@ -125,7 +125,7 @@ def main():
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(f"Created by Analitika: contact@analitika.fr" + "\n")
         file.write(f"Folder PATH listing as of {exec_time}" + "\n")
-        file.write("Created with helpers.project_tree.DisplayablePath" + "\n\n")
+        file.write("Created with tools.project_tree.DisplayablePath" + "\n\n")
         for path_ in paths:
             file.write(path_.displayable() + "\n")
             fullpath = fullpath + "\n" + path_.displayable()

@@ -17,7 +17,7 @@ load_dotenv()
 # Authenticate using your Hugging Face token
 HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 if HUGGINGFACE_TOKEN is None:
-    raise ValueError("Set the HUGGINGFACE_API_TOKEN environment variable.")
+    raise ValueError("Please set the HUGGINGFACE_API_TOKEN environment variable.")
 login(HUGGINGFACE_TOKEN)
 
 # Paths

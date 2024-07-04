@@ -58,7 +58,11 @@ repos:
         - id: pylint
           name: pylint
           entry: pylint
-          args: ['--disable=R,C', '--errors-only']
+          args:
+            - '--disable=R,C,E0401'
+            - '--errors-only'
+            - '--init-hook'
+            - 'import sys; sys.path.extend([".venv/Lib/site-packages", "local_llama3"])'
           language: python
           types: [python]
           language_version: python3.9

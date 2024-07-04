@@ -5,19 +5,19 @@ contact@analitika.fr
 
 # External imports
 import os
+
 import torch
-from trl import setup_chat_format
-from transformers import AutoModelForCausalLM, AutoTokenizer
 from loguru import logger
-from transformers import BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from trl import setup_chat_format
 
 # Internal imports
 from local_llama3.config import (
+    ATTN_IMPLEMENTATION,
     BASE_MODEL,
     MODEL_DATA_DIR,
     TOKENIZER_DATA_DIR,
     TORCH_DTYPE,
-    ATTN_IMPLEMENTATION,
 )
 
 
@@ -80,7 +80,7 @@ def load_model(model_dir):
 
 
 # Function to load the tokenizer
-def load_model_tokenizer(subfolder):
+def load_model_tokenizer(subfolder="llama3"):
     # Load the model
     model_ = load_model(MODEL_DATA_DIR / subfolder)
     tokenizer_dir = TOKENIZER_DATA_DIR / subfolder
@@ -101,7 +101,7 @@ def load_model_tokenizer(subfolder):
 
 if __name__ == "__main__":
     # Load the tokenizer
-    model, tokenizer = load_model_tokenizer(subfolder="llama3")
+    model, tokenizer = load_model_tokenizer()
 
     # Determine the device and move the inputs to it
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -110,8 +110,11 @@ if __name__ == "__main__":
     # Test the model and tokenizer
     input_text = "Hello, how are you?"
     inputs = tokenizer(input_text, return_tensors="pt")
-    inputs = {key: value.to(device) for key, value in inputs.items()}  # Move inputs to the same device as the model
+    # inputs = tokenizer(input_text, return_tensors="pt").to(device)
+    # Move inputs to the same device as the model
+    # inputs = {key: value.to(device) for key, value in inputs.items()}
+    logger.info("Calling to the model")
     outputs = model.generate(**inputs)
+    logger.info("Result from model obtained")
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
     logger.success(response)
-

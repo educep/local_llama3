@@ -3,30 +3,36 @@ Created by Analitika at 03/07/2024
 contact@analitika.fr
 """
 
+# import os
+
 # External imports
 from pathlib import Path
+
 import typer
-from loguru import logger
-from tqdm import tqdm
-import os
 from datasets import load_dataset
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    BitsAndBytesConfig,
-    HfArgumentParser,
-    TrainingArguments,
-    pipeline,
-    logging,
-)
+from loguru import logger
 
 # Internal imports
-from local_llama3.config import PROCESSED_DATA_MED_DIR, RAW_DATA_MED_DIR, DATASET_NAME
+from local_llama3.config import DATASET_NAME, PROCESSED_DATA_MED_DIR, RAW_DATA_MED_DIR
+from models.load_model import load_model_tokenizer
+
+# from tqdm import tqdm
+# from transformers import (
+#     AutoModelForCausalLM,
+#     AutoTokenizer,
+#     BitsAndBytesConfig,
+#     HfArgumentParser,
+#     TrainingArguments,
+#     logging,
+#     pipeline,
+# )
+
 
 app = typer.Typer()
 
 
 def format_chat_template(row):
+    _, tokenizer = load_model_tokenizer()
     row_json = [
         {"role": "user", "content": row["Patient"]},
         {"role": "assistant", "content": row["Doctor"]},

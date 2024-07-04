@@ -6,7 +6,7 @@ contact@analitika.fr
 # External imports
 import os
 
-import torch
+# import torch
 from loguru import logger
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from trl import setup_chat_format
@@ -104,8 +104,8 @@ if __name__ == "__main__":
     model, tokenizer = load_model_tokenizer()
 
     # Determine the device and move the inputs to it
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    logger.info(f"Detected device: {device}.")
+    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # logger.info(f"Detected device: {device}.")
 
     # Test the model and tokenizer
     input_text = "Hello, how are you?"

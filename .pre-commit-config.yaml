@@ -59,7 +59,7 @@ repos:
           name: pylint
           entry: pylint
           args:
-            - '--disable=R,C,E0401'
+            - '--disable=R,C'
             - '--errors-only'
             - '--init-hook'
             - 'import sys; sys.path.extend([".venv/Lib/site-packages"])'

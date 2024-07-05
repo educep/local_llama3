@@ -16,18 +16,6 @@ from loguru import logger
 from local_llama3.config import DATASET_NAME, PROCESSED_DATA_MED_DIR, RAW_DATA_MED_DIR
 from models.load_model import load_model_tokenizer
 
-# from tqdm import tqdm
-# from transformers import (
-#     AutoModelForCausalLM,
-#     AutoTokenizer,
-#     BitsAndBytesConfig,
-#     HfArgumentParser,
-#     TrainingArguments,
-#     logging,
-#     pipeline,
-# )
-
-
 app = typer.Typer()
 
 

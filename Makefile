@@ -95,6 +95,12 @@ sync_data_up:
 #################################################################################
 
 ## Make Dataset
+.PHONY: fb_data
+fb_data: # requirements
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/fb_make_dataset.py
+
+
+## Make Dataset
 .PHONY: data
 data: # requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py

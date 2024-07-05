@@ -19,6 +19,7 @@ from local_llama3.config import (
     MODEL_DATA_DIR,
     TOKENIZER_DATA_DIR,
     TORCH_DTYPE,
+    hf_login,
 )
 
 
@@ -72,6 +73,7 @@ def load_model(model_dir):
                 bnb_4bit_compute_dtype=TORCH_DTYPE,
                 bnb_4bit_use_double_quant=True,
             )
+            hf_login()
             model = AutoModelForCausalLM.from_pretrained(
                 BASE_MODEL,
                 quantization_config=bnb_config,
@@ -98,6 +100,7 @@ def load_model_tokenizer(subfolder="llama3"):
         logger.info(f"Loading tokenizer from local directory: {tokenizer_dir}")
         tokenizer_ = AutoTokenizer.from_pretrained(str(tokenizer_dir))
     else:
+        hf_login()
         logger.info(f"Tokenizer not found locally. Downloading from Hugging Face: {BASE_MODEL}")
         tokenizer_ = AutoTokenizer.from_pretrained(BASE_MODEL)
         logger.success("Tokenizer successfully downloaded from Hugging Face")

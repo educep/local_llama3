@@ -8,18 +8,21 @@ from pathlib import Path
 
 import torch
 from dotenv import load_dotenv
-from huggingface_hub import login
 from loguru import logger
 
 # Load environment variables from .env file if it exists
 load_dotenv()
 
-# TODO: login only when loading model from HF
-# Authenticate using your Hugging Face token
-HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
-if HUGGINGFACE_TOKEN is None:
-    raise ValueError("Please set the HUGGINGFACE_API_TOKEN environment variable.")
-login(HUGGINGFACE_TOKEN)
+
+def hf_login():
+    from huggingface_hub import login
+
+    # Authenticate using your Hugging Face token
+    HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
+    if HUGGINGFACE_TOKEN is None:
+        raise ValueError("Please set the HUGGINGFACE_API_TOKEN environment variable.")
+    login(HUGGINGFACE_TOKEN)
+
 
 # Paths
 PROJ_ROOT = Path(__file__).resolve().parents[1]
@@ -46,8 +49,8 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 # BASE_MODEL = "meta-llama/Meta-Llama-3-8B"
 BASE_MODEL = "facebook/opt-350m"
 DATASET_NAME = "ruslanmv/ai-medical-chatbot"
-# NEW_MODEL = "llama-3-8b-chat-doctor"
-NEW_MODEL = "fb_opt_350m-doctor"
+# NEW_MODEL = "llama3_doctor"
+NEW_MODEL = "fb_opt_350m_doctor"
 
 # Set the data type and attention implementation
 TORCH_DTYPE = torch.float16

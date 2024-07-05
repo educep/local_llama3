@@ -14,6 +14,7 @@ from loguru import logger
 # Load environment variables from .env file if it exists
 load_dotenv()
 
+# TODO: login only when loading model from HF
 # Authenticate using your Hugging Face token
 HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 if HUGGINGFACE_TOKEN is None:
@@ -42,10 +43,11 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 # Set the base model, dataset, and new model variable.
 # We’ll load the base model from Kaggle and the dataset
 # from the HugginFace Hub and then save the new model.
-BASE_MODEL = "meta-llama/Meta-Llama-3-8B"
-# BASE_MODEL = "xlm-roberta-base"
+# BASE_MODEL = "meta-llama/Meta-Llama-3-8B"
+BASE_MODEL = "facebook/opt-350m"
 DATASET_NAME = "ruslanmv/ai-medical-chatbot"
-NEW_MODEL = "llama-3-8b-chat-doctor"
+# NEW_MODEL = "llama-3-8b-chat-doctor"
+NEW_MODEL = "fb_opt_350m-doctor"
 
 # Set the data type and attention implementation
 TORCH_DTYPE = torch.float16

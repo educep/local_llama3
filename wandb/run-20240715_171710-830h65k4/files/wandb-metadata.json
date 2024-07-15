@@ -1,0 +1,56 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.9.13",
+    "heartbeatAt": "2024-07-15T15:17:11.552950",
+    "startedAt": "2024-07-15T15:17:10.627812",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--mode=client",
+        "--host=127.0.0.1",
+        "--port=54392"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/educep/local_llama3.git",
+        "commit": "7a775db5a4ada86970220d8824e14154403d1928"
+    },
+    "email": "edoo@melix.org",
+    "root": "C:/Users/ecepeda/PycharmProjects/local_llama3",
+    "host": "LAPTOP-EDUARDO",
+    "username": "ecepeda",
+    "executable": "C:\\Users\\ecepeda\\PycharmProjects\\local_llama3\\.venv\\Scripts\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2304.0,
+        "min": 0.0,
+        "max": 2304.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2304.0,
+            "min": 0.0,
+            "max": 2304.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 952.9631996154785,
+            "used": 753.461254119873
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2070",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2070",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 31.852943420410156
+    }
+}

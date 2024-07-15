@@ -3,9 +3,10 @@ Created by Analitika at 03/07/2024
 contact@analitika.fr
 """
 
-import shutil
-
 # External imports
+
+import os
+import shutil
 from pathlib import Path
 
 import typer
@@ -18,8 +19,7 @@ from loguru import logger
 from local_llama3.config import DATASET_NAME, PROCESSED_DATA_MED_DIR, RAW_DATA_MED_DIR
 from models.load_model import load_model_tokenizer
 
-# from trl import SFTConfig, SFTTrainer, DataCollatorForCompletionOnlyLM
-
+MODEL_NAME = "fb_opt_350m"
 
 app = typer.Typer()
 
@@ -48,7 +48,7 @@ def main(
     # output_path: Path = PROCESSED_DATA_MED_DIR / "dataset.csv",
     # ----------------------------------------------
 ):
-    # Define storage directory
+    # Define storage directory for this small model
     storage_folder = str(PROCESSED_DATA_MED_DIR).replace("medical", "fb_medical")
     # Define a custom cache directory
     cache_dir = Path(RAW_DATA_MED_DIR) / "cache"
@@ -72,11 +72,13 @@ def main(
     if not dataset_exists_locally(Path(storage_folder)):
         # Preprocess the dataset
         # preproc_dataset = dataset.shuffle(seed=65).select(range(1000))
-        _, tokenizer = load_model_tokenizer("fb_opt_350m")
+        _, tokenizer = load_model_tokenizer(MODEL_NAME)
+
+        num_cpus = max(1, os.cpu_count() - 1)
         # Preprocess the dataset
         preproc_dataset = dataset.map(
             lambda row: format_chat_template(row, tokenizer),
-            num_proc=4,
+            num_proc=num_cpus,
             cache_file_name=str(cache_dir / "processed_dataset.arrow"),
         )
         Path(storage_folder).mkdir(parents=True, exist_ok=True)

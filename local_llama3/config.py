@@ -9,9 +9,18 @@ from pathlib import Path
 import torch
 from dotenv import load_dotenv
 from loguru import logger
+from transformers import BitsAndBytesConfig
+
+import wandb
 
 # Load environment variables from .env file if it exists
 load_dotenv()
+
+
+def wandb_login():
+    wb_token = os.getenv("WANDB_TOKEN")
+    wandb.login(key=wb_token)
+    return
 
 
 def hf_login():
@@ -49,23 +58,31 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 # BASE_MODEL = "meta-llama/Meta-Llama-3-8B"
 BASE_MODEL = "facebook/opt-350m"
 DATASET_NAME = "ruslanmv/ai-medical-chatbot"
-# NEW_MODEL = "llama3_doctor"
-NEW_MODEL = "fb_opt_350m_doctor"
+NEW_MODEL = "llama3_doctor"
 
 # Set the data type and attention implementation
 TORCH_DTYPE = torch.float16
 ATTN_IMPLEMENTATION = "eager"
 
+# Define the quantization configuration
+# In this project we reduce memory usage and speed up the fine-tuning process.
+# QLoRA config
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=TORCH_DTYPE,
+    bnb_4bit_use_double_quant=True,
+)
+
 
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
-try:
-    from tqdm import tqdm
-
-    logger.remove(0)
-    logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
-except ModuleNotFoundError:
-    pass
+# try:
+#     from tqdm import tqdm
+#     logger.remove(0)
+#     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
+# except ModuleNotFoundError:
+#     pass
 
 if __name__ == "__main__":
     logger.info("Done")
